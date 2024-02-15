@@ -1,0 +1,29 @@
+{
+  "name": "ts-katas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "dev": "ts-node src/index.ts",
+    "dev:watch": "npm run dev -- --watch src/*.ts",
+    "test": "jest ./src/__tests__/*.ts",
+    "test:watch": "npm t -- --watch",
+    "lint": "eslint ./src/*.ts ./src/__tests__/*.ts",
+    "start": "node dist/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.3",
+    "@types/jest": "^29.5.12",
+    "eslint": "^8.56.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.0.1"
+  }
+}
