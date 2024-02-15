@@ -55,3 +55,36 @@ console.log(
   '\nShoule be "taxi":',
   highestScoringWord('man i need a taxi up to ubud')
 );
+
+/**
+ * Count smileys
+ */
+const validateSmiley = (smiley: string): boolean => {
+  let chars = smiley.split('');
+
+  if (chars.length !== 2 && chars.length !== 3) {
+    return false;
+  }
+
+  if (chars.length === 3 && !chars.some((ch) => ch === '~' || ch === '-')) {
+    return false;
+  }
+
+  if (
+    !(
+      chars.some((ch) => ch === ':' || ch === ';') &&
+      chars.some((ch) => ch === 'D' || ch === ')')
+    )
+  ) {
+    return false;
+  }
+  return true;
+};
+
+export function countSmileys(arr: string[]): number {
+  if (arr.length === 0) return 0;
+
+  return arr.filter((smiley) => validateSmiley(smiley)).length;
+}
+
+console.log('\nShould be 3', countSmileys([';D', ':-(', ':-)', ';~)']));
