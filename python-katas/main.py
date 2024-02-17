@@ -12,3 +12,20 @@ def is_prime(num):
         divident += 1
 
     return True
+
+
+def digital_root(n):
+    nStr = str(n)
+    sum = 0
+
+    for char in nStr:
+        sum += int(char)
+
+    if len(nStr) == 1:
+        return sum
+
+    return digital_root(sum)
+
+
+print("Should be 16: ", digital_root(16))
+print("Should be 2: ", digital_root(493193))
