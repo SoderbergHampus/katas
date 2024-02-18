@@ -47,3 +47,30 @@ def two_sum(numbers, target):
         for j, y in enumerate(numbers):
             if i != j and x + y == target:
                 return (i, j)
+
+
+def in_array(array1, array2):
+    arr1, arr2 = sorted(array1), sorted(array2)
+    result = []
+    for word1 in arr1:
+        for word2 in arr2:
+            if word1 in word2 and word1 not in result:
+                result.append(word1)
+    return result
+
+
+print(
+    "Should return ['arp', 'live', 'strong'] ",
+    in_array(
+        ["arp", "live", "strong"],
+        ["lively", "alive", "harp", "sharp", "armstrong"],
+    ),
+)
+
+print(
+    "Should return [] ",
+    in_array(
+        ["tarp", "mice", "bull"],
+        ["lively", "alive", "harp", "sharp", "armstrong"],
+    ),
+)
