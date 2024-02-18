@@ -13,8 +13,19 @@ export function findOutlier(integers: number[]): number {
 	return integers.find((num) => num % 2 === 0) || 0;
 }
 
-console.log('Should return 11: ', findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
+export function order(words: string): string {
+	if (words.length === 0) return '';
+	return words
+		.split(' ')
+		.sort((a, b) => +a.match(/\d/)! - +b.match(/\d/)!)
+		.join(' ');
+}
+
 console.log(
-	'Should return 160: ',
-	findOutlier([160, 3, 1719, 19, 11, 13, -21])
+	'Should return "Thi1s is2 3a T4est": ',
+	order('is2 Thi1s T4est 3a')
+);
+console.log(
+	'Should return "Fo1r the2 g3ood 4of th5e pe6ople": ',
+	order('4of Fo1r pe6ople g3ood th5e the2')
 );
