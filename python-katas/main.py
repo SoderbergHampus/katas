@@ -42,6 +42,12 @@ def perimeter(n):
     return 4 * sum
 
 
-print("Should be 80: ", perimeter(5))
-print("Should be 216: ", perimeter(7))
-print("Should be 114624: ", perimeter(20))
+def two_sum(numbers, target):
+    for i, x in enumerate(numbers):
+        for j, y in enumerate(numbers):
+            if i != j and x + y == target:
+                return (i, j)
+
+
+print("Should be (0, 2): ", two_sum([1, 2, 3], 4))
+print("Should be (1, 2): ", two_sum([1234, 5678, 9012], 14690))
