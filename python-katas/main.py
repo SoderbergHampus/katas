@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 
 def is_prime(num):
@@ -27,5 +28,20 @@ def digital_root(n):
     return digital_root(sum)
 
 
-print("Should be 16: ", digital_root(16))
-print("Should be 2: ", digital_root(493193))
+def perimeter(n):
+    sides = [1, 1]
+
+    for i in range(2, n + 1):
+        # sides = np.append(sides, sides[i - 1] + sides[i - 2])
+        sides.append(sides[i - 1] + sides[i - 2])
+
+    sum = 0
+    for num in sides:
+        sum += num
+
+    return 4 * sum
+
+
+print("Should be 80: ", perimeter(5))
+print("Should be 216: ", perimeter(7))
+print("Should be 114624: ", perimeter(20))
