@@ -47,7 +47,3 @@ def two_sum(numbers, target):
         for j, y in enumerate(numbers):
             if i != j and x + y == target:
                 return (i, j)
-
-
-print("Should be (0, 2): ", two_sum([1, 2, 3], 4))
-print("Should be (1, 2): ", two_sum([1234, 5678, 9012], 14690))
