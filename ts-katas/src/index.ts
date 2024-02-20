@@ -21,11 +21,39 @@ export function order(words: string): string {
 		.join(' ');
 }
 
-console.log(
-	'Should return "Thi1s is2 3a T4est": ',
-	order('is2 Thi1s T4est 3a')
-);
-console.log(
-	'Should return "Fo1r the2 g3ood 4of th5e pe6ople": ',
-	order('4of Fo1r pe6ople g3ood th5e the2')
-);
+export function longestConsec(strarr: string[], k: number): string {
+	const arr = [];
+	let maxLength = 0;
+	for (let i = 0; i < strarr.length; i++) {
+		let counter = 0;
+		let word = '';
+
+		while (counter < k && k + i <= strarr.length) {
+			word += strarr[i + counter];
+			counter++;
+		}
+		if (word.length > 0) arr.push(word);
+		if (word.length > maxLength) maxLength = word.length;
+	}
+	return arr.find((a) => a.length === maxLength)!;
+}
+
+const makeUnique = (value: unknown, index: number, arr: unknown[]) => {
+	return arr.indexOf(value) === index;
+};
+export const scramble = (str1: string, str2: string): boolean => {
+	const sharedLetters1 = str1.split('').filter((ch) => str2.includes(ch));
+	const sharedLetters2 = str2.split('').filter((ch) => str1.includes(ch));
+	console.log('\n', sharedLetters1, '\n', sharedLetters2);
+
+	return (
+		str2.length === sharedLetters2.length &&
+		sharedLetters1.length >= sharedLetters2.length
+	);
+};
+
+console.log('should return true: ', scramble('rkqodlw', 'world'));
+console.log('should return true: ', scramble('cedewaraaossoqqyt', 'codewars'));
+console.log('should return false: ', scramble('katas', 'steak'));
+console.log('Should be false. ', scramble('scriptjavx', 'javascript'));
+console.log('Should be false. ', scramble('javscripts', 'javascript'));
